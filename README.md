@@ -6,3 +6,4 @@
 
 1. Create MintGemToken.sol
 2. Check Remix, OpenSea
+3. Metadata Standard, Pinata
