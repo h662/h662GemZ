@@ -8,6 +8,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract MintGemToken is ERC721Enumerable, Ownable {
     uint constant public MAX_TOKEN_COUNT = 1000;
+    uint constant public TOKEN_RANK_LENGTH = 4;
+    uint constant public TOKEN_TYPE_LENGTH = 4;
 
     string public metadataURI;
 
@@ -24,6 +26,8 @@ contract MintGemToken is ERC721Enumerable, Ownable {
     }
 
     mapping(uint => GemTokenData) public gemTokenData;
+
+    uint[TOKEN_RANK_LENGTH][TOKEN_TYPE_LENGTH] public gemTokenCount; 
 
     function tokenURI(uint _tokenId) override public view returns(string memory) {
         string memory gemTokenRank = Strings.toString(gemTokenData[_tokenId].gemTokenRank);
@@ -42,9 +46,21 @@ contract MintGemToken is ERC721Enumerable, Ownable {
 
         gemTokenData[tokenId] = GemTokenData(randomTokenData.gemTokenRank, randomTokenData.gemTokenType);
 
+        gemTokenCount[randomTokenData.gemTokenRank - 1][randomTokenData.gemTokenType - 1] += 1;
+
         payable(owner()).transfer(msg.value);
 
         _mint(msg.sender, tokenId);
+    }
+
+    function getGemTokenCount() public view returns(uint[TOKEN_RANK_LENGTH][TOKEN_TYPE_LENGTH] memory) {
+        return gemTokenCount;
+    }
+    function getGemTokenRank(uint _tokenId) public view returns(uint) {
+        return gemTokenData[_tokenId].gemTokenRank;
+    }
+    function getGemTokenType(uint _tokenId) public view returns(uint) {
+        return gemTokenData[_tokenId].gemTokenType;
     }
 
     function randomGenerator(address _msgSender, uint _tokenId) private view returns(GemTokenData memory) {
