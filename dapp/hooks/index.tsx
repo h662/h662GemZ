@@ -1,3 +1,4 @@
+import axios from "axios";
 import Caver, { Contract } from "caver-js";
 import { useEffect, useState } from "react";
 import {
@@ -6,6 +7,7 @@ import {
   SALE_GEM_TOKEN_ABI,
   SALE_GEM_TOKEN_ADDRESS,
 } from "../caverConfig";
+import { GemTokenMetadata } from "../interfaces";
 
 export const useAccount = () => {
   const [account, setAccount] = useState<string>("");
@@ -56,4 +58,24 @@ export const useCaver = () => {
   }, [caver]);
 
   return { caver, mintGemTokenContract, saleGemTokenContract };
+};
+
+export const useMetadata = () => {
+  const [metadataURI, setMetadataURI] = useState<GemTokenMetadata | undefined>(
+    undefined
+  );
+
+  const getMetadata = async (gemTokenRank: string, gemTokenType: string) => {
+    try {
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_METADATA_URI}/${gemTokenRank}/${gemTokenType}.json`
+      );
+
+      setMetadataURI(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return { metadataURI, getMetadata };
 };
