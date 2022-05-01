@@ -10,3 +10,4 @@
 4. Create tokenURI()
 5. Check Metadata
 6. Ownable
+7. Create randomGenerator()
