@@ -33,3 +33,4 @@
 21. Layout
 22. my-gemz, MyGemCard
 23. Sale Status
+24. Sell Gem
