@@ -17,3 +17,4 @@
 11. SaleGemToken.sol, setForSaleGemToken()
 12. purchaseGemToken()
 13. getSaleGemTokens(), getLatestMintedGemToken(), getGemTokenInfo()
+14. create-next-app, chakra-ui, useAccount()
