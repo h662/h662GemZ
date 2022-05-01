@@ -8,3 +8,4 @@
 2. Check Remix, OpenSea
 3. Metadata Standard, Pinata
 4. Create tokenURI()
+5. Check Metadata
