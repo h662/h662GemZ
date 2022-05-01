@@ -4,4 +4,5 @@
 
 ##### Smart Contract
 
-1. MintGemToken.sol
+1. Create MintGemToken.sol
+2. Check Remix, OpenSea
