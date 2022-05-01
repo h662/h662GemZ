@@ -12,3 +12,4 @@
 6. Ownable
 7. Create randomGenerator()
 8. payable
+9. MAX_TOKEN_COUNT
