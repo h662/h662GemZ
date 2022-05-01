@@ -29,3 +29,4 @@
 17. useMetadata
 18. GemCard
 19. getRemainGemTokens()
+20. getGemTokenCount()
