@@ -4,8 +4,9 @@ pragma solidity ^0.8.7;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract MintGemToken is ERC721Enumerable {
+contract MintGemToken is ERC721Enumerable, Ownable {
     string public metadataURI;
 
     constructor(string memory _name, string memory _symbol, string memory _metadataURI) ERC721(_name, _symbol) {
@@ -19,7 +20,7 @@ contract MintGemToken is ERC721Enumerable {
 
     mapping(uint => GemTokenData) public gemTokenData;
 
-    function tokenURI(uint _tokenId) override public view returns (string memory) {
+    function tokenURI(uint _tokenId) override public view returns(string memory) {
         string memory gemTokenRank = Strings.toString(gemTokenData[_tokenId].gemTokenRank);
         string memory gemTokenType = Strings.toString(gemTokenData[_tokenId].gemTokenType);
 
@@ -33,4 +34,6 @@ contract MintGemToken is ERC721Enumerable {
 
         _mint(msg.sender, tokenId);
     }
+
+   
 }

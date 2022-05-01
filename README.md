@@ -9,3 +9,4 @@
 3. Metadata Standard, Pinata
 4. Create tokenURI()
 5. Check Metadata
+6. Ownable
