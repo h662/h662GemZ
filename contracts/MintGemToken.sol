@@ -9,6 +9,9 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract MintGemToken is ERC721Enumerable, Ownable {
     string public metadataURI;
 
+    // 10^18 Peb = 1 Klay
+    uint public gemTokenPrice = 1000000000000000000;
+
     constructor(string memory _name, string memory _symbol, string memory _metadataURI) ERC721(_name, _symbol) {
         metadataURI = _metadataURI;
     }
@@ -27,12 +30,16 @@ contract MintGemToken is ERC721Enumerable, Ownable {
         return string(abi.encodePacked(metadataURI, '/', gemTokenRank, '/', gemTokenType, '.json'));
     }
 
-    function mintGemToken() public  {
+    function mintGemToken() public payable {
+        require(gemTokenPrice <= msg.value, "Not enough Klay.");
+
         uint tokenId = totalSupply() + 1;
 
         GemTokenData memory randomTokenData = randomGenerator(msg.sender, tokenId);
 
         gemTokenData[tokenId] = GemTokenData(randomTokenData.gemTokenRank, randomTokenData.gemTokenType);
+
+        payable(owner()).transfer(msg.value);
 
         _mint(msg.sender, tokenId);
     }

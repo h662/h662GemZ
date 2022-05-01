@@ -11,3 +11,4 @@
 5. Check Metadata
 6. Ownable
 7. Create randomGenerator()
+8. payable
