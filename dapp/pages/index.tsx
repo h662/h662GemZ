@@ -18,7 +18,7 @@ import { useCaver } from "../hooks";
 
 const Home: NextPage = () => {
   const [remainGemTokens, setRemainGemTokens] = useState<number>(0);
-  const [gemTokenCount, setGemTokenCount] = useState<stirng[][] | undefined>(
+  const [gemTokenCount, setGemTokenCount] = useState<string[][] | undefined>(
     undefined
   );
 
