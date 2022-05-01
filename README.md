@@ -14,3 +14,5 @@
 8. payable
 9. MAX_TOKEN_COUNT
 10. gemTokenCount
+11. SaleGemToken.sol, setForSaleGemToken()
+12. purchaseGemToken()

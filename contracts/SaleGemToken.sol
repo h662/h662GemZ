@@ -27,4 +27,29 @@ contract SaleGemToken {
 
         onSaleTokens.push(_tokenId);
     }
+
+    function purchaseGemToken(uint _tokenId) public payable {
+        address tokenOwner = mintGemToken.ownerOf(_tokenId);
+
+        require(tokenOwner != msg.sender, "Caller is Gem token owner.");
+        require(tokenPrices[_tokenId] > 0, "This Gem token not sale.");
+        require(tokenPrices[_tokenId] <= msg.value, "Caller sent lower than price.");
+
+        payable(tokenOwner).transfer(msg.value);
+
+        mintGemToken.safeTransferFrom(tokenOwner, msg.sender, _tokenId);
+
+        tokenPrices[_tokenId] = 0;
+
+        popOnSaleToken(_tokenId);
+    }
+
+    function popOnSaleToken(uint _tokenId) private {
+        for(uint i = 0; i < onSaleTokens.length; i++) {
+            if(onSaleTokens[i] == _tokenId) {
+                onSaleTokens[i] = onSaleTokens[onSaleTokens.length - 1];
+                onSaleTokens.pop();
+            }
+        }
+    }
 }
