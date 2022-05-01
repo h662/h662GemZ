@@ -13,7 +13,7 @@ import { useAccount, useCaver, useMetadata } from "../hooks";
 import { GemTokenData } from "../interfaces";
 import GemCard from "./GemCard";
 
-interface MyGemCardProps {
+export interface MyGemCardProps {
   gemTokenData: GemTokenData;
 }
 

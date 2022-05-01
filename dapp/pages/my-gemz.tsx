@@ -35,8 +35,6 @@ const MyGemz: FC = () => {
         .isApprovedForAll(account, SALE_GEM_TOKEN_ADDRESS)
         .call();
 
-      console.log(response);
-
       setSaleStatus(response);
     } catch (error) {
       console.error(error);
