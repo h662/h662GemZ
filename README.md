@@ -32,3 +32,4 @@
 20. getGemTokenCount()
 21. Layout
 22. my-gemz, MyGemCard
+23. Sale Status
