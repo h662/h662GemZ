@@ -19,9 +19,14 @@ import GemCard from "./GemCard";
 interface MintingModalProps {
   isOpen: boolean;
   onClose: () => void;
+  getRemainGemTokens: () => Promise<void>;
 }
 
-const MintingModal: FC<MintingModalProps> = ({ isOpen, onClose }) => {
+const MintingModal: FC<MintingModalProps> = ({
+  isOpen,
+  onClose,
+  getRemainGemTokens,
+}) => {
   const { account } = useAccount();
   const { caver, mintGemTokenContract, saleGemTokenContract } = useCaver();
   const { metadataURI, getMetadata } = useMetadata();
@@ -61,6 +66,7 @@ const MintingModal: FC<MintingModalProps> = ({ isOpen, onClose }) => {
           latestMintedGemToken.gemTokenRank,
           latestMintedGemToken.gemTokenType
         );
+        getRemainGemTokens();
       }
     } catch (error) {
       console.error(error);
