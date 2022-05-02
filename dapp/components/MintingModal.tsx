@@ -96,7 +96,7 @@ const MintingModal: FC<MintingModalProps> = ({
         </ModalBody>
 
         <ModalFooter>
-          <Button variant="ghost" colorScheme="pink" onClick={onClickMint}>
+          <Button variant="ghost" colorScheme="blue" onClick={onClickMint}>
             Minting
           </Button>
           <Button ml={2} onClick={onClose}>

@@ -10,7 +10,11 @@ interface GemCardProps {
 const GemCard: FC<GemCardProps> = ({ metadataURI }) => {
   return (
     <Box w={200}>
-      <Image src={metadataURI?.image} fallbackSrc="loading.png" alt="Gem" />
+      <Image
+        src={metadataURI?.image}
+        fallbackSrc="images/loading.png"
+        alt="Gem"
+      />
       <Text>{metadataURI?.name}</Text>
       <Text>{metadataURI?.description}</Text>
     </Box>

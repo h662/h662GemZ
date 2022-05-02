@@ -1,6 +1,7 @@
 import {
   Button,
   Flex,
+  Image,
   Table,
   TableContainer,
   Tbody,
@@ -59,30 +60,51 @@ const Home: NextPage = () => {
   return (
     <>
       <Flex
-        bg="red.100"
+        pt={20}
         minH="100vh"
-        justifyContent="center"
         alignItems="center"
         direction="column"
+        textColor="gray.700"
       >
-        <TableContainer mb={4}>
+        <Text fontSize="4xl">💎Collect 16 kinds of GemZ💎</Text>
+        <Text mb={8} fontSize="2xl" color="blue.400">
+          Remaining GemZ{" "}
+          <Text d="inline-block" fontWeight="bold" color="gray.600">
+            : {remainGemTokens}
+          </Text>
+        </Text>
+        <TableContainer mb={8}>
           <Table>
-            <Thead>
+            <Thead bgColor="gray.500">
               <Tr>
-                <Th>Rank\Type</Th>
-                <Th>1</Th>
-                <Th>2</Th>
-                <Th>3</Th>
-                <Th>4</Th>
+                <Th textColor="gray.700">Rank\Type</Th>
+                <Th>
+                  <Image w={6} borderRadius="sm" src="images/t1.png" alt="1" />
+                </Th>
+                <Th>
+                  <Image w={6} borderRadius="sm" src="images/t2.png" alt="2" />
+                </Th>
+                <Th>
+                  <Image w={6} borderRadius="sm" src="images/t3.png" alt="3" />
+                </Th>
+                <Th>
+                  <Image w={6} borderRadius="sm" src="images/t4.png" alt="4" />
+                </Th>
               </Tr>
             </Thead>
             {gemTokenCount?.map((v, i) => {
               return (
-                <Tbody key={i}>
+                <Tbody key={i} bgColor={`gray.${400 - i * 100}`}>
                   <Tr>
-                    <Td>{i + 1}</Td>
+                    <Td textAlign="center" fontSize="xs" fontWeight="bold">
+                      Rank {i + 1}
+                    </Td>
                     {v.map((w, j) => {
-                      return <Td key={j}>{w}</Td>;
+                      return (
+                        <Td key={j} textAlign="center">
+                          {w}
+                        </Td>
+                      );
                     })}
                   </Tr>
                 </Tbody>
@@ -90,8 +112,8 @@ const Home: NextPage = () => {
             })}
           </Table>
         </TableContainer>
-        <Text mb={4}>Remaining GemZ : {remainGemTokens}</Text>
-        <Button colorScheme="pink" onClick={onOpen}>
+
+        <Button colorScheme="blue" onClick={onOpen}>
           Minting
         </Button>
       </Flex>
