@@ -10,13 +10,23 @@ const Header: FC = () => {
   return (
     <Flex
       position="fixed"
-      bg="white"
+      bg="blue.300"
       w="full"
       justifyContent="space-between"
+      alignItems="center"
       px={12}
       py={2}
     >
-      <Box>h662GemZ</Box>
+      <Flex
+        bg="white"
+        alignItems="center"
+        px={2}
+        py={1}
+        rounded="full"
+        fontWeight="bold"
+      >
+        💎h662GemZ💎
+      </Flex>
       <Box>
         <Link href="/">
           <Button size="sm" variant="ghost">
@@ -35,9 +45,9 @@ const Header: FC = () => {
         </Link>
       </Box>
       <Box>
-        <Text>
+        <Text fontSize="xs">
           {account
-            ? `${account.substr(0, 4)}...${account.substr(
+            ? `Account ${account.substr(0, 4)}...${account.substr(
                 account.length - 4,
                 account.length
               )}`
