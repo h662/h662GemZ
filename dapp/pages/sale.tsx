@@ -39,7 +39,14 @@ const Sale: NextPage = () => {
       templateColumns="repeat(4, 1fr)"
     >
       {saleGemTokens?.map((v, i) => {
-        return <SaleGemCard key={i} gemTokenData={v} />;
+        return (
+          <SaleGemCard
+            key={i}
+            gemTokenData={v}
+            getSaleGemTokens={getSaleGemTokens}
+            setSaleGemTokens={setSaleGemTokens}
+          />
+        );
       })}
     </Grid>
   );

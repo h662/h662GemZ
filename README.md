@@ -35,3 +35,4 @@
 23. Sale Status
 24. Sell Gem
 25. Sale Page
+26. onClickBuy()
