@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Flex,
   Image,
@@ -68,10 +69,7 @@ const Home: NextPage = () => {
       >
         <Text fontSize="4xl">💎Collect 16 kinds of GemZ💎</Text>
         <Text mb={8} fontSize="2xl" color="blue.400">
-          Remaining GemZ{" "}
-          <Text d="inline-block" fontWeight="bold" color="gray.600">
-            : {remainGemTokens}
-          </Text>
+          Remaining GemZ : {remainGemTokens}
         </Text>
         <TableContainer mb={8}>
           <Table>
