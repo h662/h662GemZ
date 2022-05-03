@@ -55,7 +55,15 @@ const MyGemCard: FC<MyGemCardProps> = ({ gemTokenData }) => {
   }, []);
 
   return (
-    <Box w={200} my={2}>
+    <Box
+      w={200}
+      h="fit-content"
+      my={2}
+      bgColor="white"
+      p={3}
+      rounded="2xl"
+      shadow="lg"
+    >
       <GemCard metadataURI={metadataURI} />
       {myGemPrice === "0" ? (
         <Flex>
@@ -67,7 +75,7 @@ const MyGemCard: FC<MyGemCardProps> = ({ gemTokenData }) => {
             />
             <InputRightAddon children="Klay" />
           </InputGroup>
-          <Button size="sm" onClick={onClickSell} ml={2}>
+          <Button size="sm" onClick={onClickSell} ml={2} colorScheme="yellow">
             Sell
           </Button>
         </Flex>

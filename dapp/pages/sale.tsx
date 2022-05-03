@@ -32,11 +32,13 @@ const Sale: NextPage = () => {
 
   return (
     <Grid
-      bg="green.100"
       px={12}
       py={16}
       minH="100vh"
       templateColumns="repeat(4, 1fr)"
+      maxW="container.lg"
+      mx="auto"
+      justifyItems="center"
     >
       {saleGemTokens?.map((v, i) => {
         return (

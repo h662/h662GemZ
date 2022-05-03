@@ -1,4 +1,4 @@
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { Dispatch, FC, SetStateAction, useEffect } from "react";
 import { SALE_GEM_TOKEN_ADDRESS } from "../caverConfig";
 import { useAccount, useCaver, useMetadata } from "../hooks";
@@ -49,14 +49,24 @@ const SaleGemCard: FC<SaleGemCardProps> = ({
   }, []);
 
   return (
-    <Box>
+    <Box
+      w={200}
+      h="fit-content"
+      my={2}
+      bgColor="white"
+      p={3}
+      rounded="2xl"
+      shadow="lg"
+    >
       <GemCard metadataURI={metadataURI} />
-      <Text>
-        {caver?.utils.convertFromPeb(gemTokenData.tokenPrice, "KLAY")} KLAY
-      </Text>
-      <Button size="sm" mt={2} onClick={onClickBuy}>
-        Buy
-      </Button>
+      <Flex alignItems="center" justifyContent="space-between">
+        <Text d="inline-block" fontSize="sm" pt={2}>
+          {caver?.utils.convertFromPeb(gemTokenData.tokenPrice, "KLAY")} KLAY
+        </Text>
+        <Button size="sm" mt={2} onClick={onClickBuy}>
+          Buy
+        </Button>
+      </Flex>
     </Box>
   );
 };

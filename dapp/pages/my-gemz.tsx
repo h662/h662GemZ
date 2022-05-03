@@ -71,7 +71,7 @@ const MyGemz: FC = () => {
   }, [account, mintGemTokenContract]);
 
   return (
-    <Box bg="blue.100" p={12} minH="100vh">
+    <Box p={12} minH="100vh">
       <Box py={4} textAlign="center">
         <Text d="inline-block">
           Sale Status : {saleStatus ? "True" : "False"}
@@ -85,7 +85,13 @@ const MyGemz: FC = () => {
           {saleStatus ? "Cancel" : "Approve"}
         </Button>
       </Box>
-      <Grid templateColumns="repeat(4, 1fr)" py={4}>
+      <Grid
+        templateColumns="repeat(4, 1fr)"
+        py={4}
+        maxW="container.lg"
+        mx="auto"
+        justifyItems="center"
+      >
         {myGemTokens?.map((v, i) => {
           return <MyGemCard key={i} gemTokenData={v} />;
         })}

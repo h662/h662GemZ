@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Flex,
   Modal,
@@ -85,7 +86,9 @@ const MintingModal: FC<MintingModalProps> = ({
         <ModalBody>
           {metadataURI ? (
             <Flex justifyContent="center">
-              <GemCard metadataURI={metadataURI} />
+              <Box w={200}>
+                <GemCard metadataURI={metadataURI} />
+              </Box>
             </Flex>
           ) : (
             <>
