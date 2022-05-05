@@ -2,7 +2,7 @@
 
 ### Contents
 
-##### Smart Contract
+##### Smart Contract - Klaytn Baobab Testnet
 
 - MintGemToken - 0xc2fD317eE73E219B112d57c28B06c0F97dAC6E29
 - SaleGemToken - 0x5001eee87b0E9cc996216Df27A4C72B3dcdCC1fD
